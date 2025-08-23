@@ -33,20 +33,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "ernest.muuo@example.com",
-      href: "mailto:ernest.muuo@example.com"
+      value: "muuoerneset001@gmail.com",
+      href: "mailto:muuoerneset001@gmail.com"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/ernestmuuo",
-      href: "https://linkedin.com/in/ernestmuuo"
+      value: "linkedin.com/in/ernest-muuo",
+      href: "https://www.linkedin.com/in/ernest-muuo"
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/ernestmuuo",
-      href: "https://github.com/ernestmuuo"
+      value: "github.com/Ernest-M",
+      href: "https://github.com/Ernest-M"
     },
     {
       icon: MapPin,
