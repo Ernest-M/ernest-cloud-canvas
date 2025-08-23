@@ -11,12 +11,12 @@ const Projects = () => {
       icon: Cloud,
       projects: [
         {
-          title: "Huawei Cloud Deployment",
-          description: "Collaborated with a team to architect and deploy scalable cloud infrastructure on Huawei Cloud platform. Implemented best practices for security, performance optimization, and cost management. My role involved designing the network architecture, configuring security groups, and optimizing resource allocation for maximum efficiency.",
-          technologies: ["Huawei Cloud", "Infrastructure as Code", "DevOps", "Network Security"],
+          title: "Mobile Money Platform - Huawei Cloud Competition Winner",
+          description: "Presented a Mobile Money platform project in the final round of the Huawei Cloud Developer Competition (Southern Africa), Johannesburg. The system utilizes Huawei's serverless cloud computing, FunctionGraphs, and Cloud-managed Database RDS. From 130 teams participating in the first phase, our product secured 1st place among 6 finalists from all over Africa, attracting financing for the project and other awards.",
+          technologies: ["Huawei Cloud", "Serverless Computing", "FunctionGraph", "RDS Database"],
           status: "Completed",
           github: "#",
-          demo: "#"
+          demo: "https://www.huaweicloud.com/intl/en-us/news/20221121172334275.html"
         }
       ]
     },
@@ -47,11 +47,11 @@ const Projects = () => {
       icon: Cpu,
       projects: [
         {
-          title: "IoT Final Year Project",
-          description: "Designed and developed an innovative IoT solution as my BSc final year project, integrating hardware sensors with cloud-based analytics platform. The system demonstrated real-time data collection, processing, and visualization capabilities. Implemented end-to-end system architecture including sensor networks, data transmission protocols, and cloud storage solutions.",
-          technologies: ["IoT", "Arduino/Raspberry Pi", "Cloud Integration", "Sensor Networks"],
+          title: "Acoustic Event Detection and Localisation (IoT Final Year Project)",
+          description: "Developed a real-time acoustic event classification and localisation system using Raspberry Pi 3B+ and MATRIX Voice development board. Implemented machine learning models for audio event detection trained on ESC-50 dataset, and real-time sound localisation using GCC-PHAT algorithm with Voice Activity Detection. The system successfully processes live audio data and identifies acoustic events like footfall and clapping while determining their spatial location.",
+          technologies: ["Raspberry Pi", "MATRIX Voice", "Python", "TensorFlow Lite", "Audio Processing", "ML"],
           status: "Completed",
-          github: "#",
+          github: "https://github.com/Ernest-M/AEDL_project",
           demo: "#"
         }
       ]

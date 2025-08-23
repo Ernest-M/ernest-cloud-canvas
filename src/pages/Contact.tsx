@@ -25,16 +25,31 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    // Create email content
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    
+    // Open default email client with pre-filled content
+    window.location.href = `mailto:muuoernest001@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
   };
 
   const contactMethods = [
     {
       icon: Mail,
       label: "Email",
-      value: "muuoerneset001@gmail.com",
-      href: "mailto:muuoerneset001@gmail.com"
+      value: "muuoernest001@gmail.com",
+      href: "mailto:muuoernest001@gmail.com"
     },
     {
       icon: Linkedin,
