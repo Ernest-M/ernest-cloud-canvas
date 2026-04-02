@@ -1,172 +1,119 @@
-import { Card } from '@/components/ui/card';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
+import { Mail, Send, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "ernest.muuo@example.com",
-      href: "mailto:ernest.muuo@example.com"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+254 700 000 000",
-      href: "tel:+254700000000"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Nairobi, Kenya",
-      href: "#"
-    }
-  ];
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
-  const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      href: "https://github.com/ernestmuuo",
-      username: "@ernestmuuo"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com/in/ernestmuuo",
-      username: "Ernest Muuo"
-    },
-    {
-      icon: MessageCircle,
-      label: "WhatsApp",
-      href: "https://wa.me/254700000000",
-      username: "Chat with me"
-    }
-  ];
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:muuoernest001@gmail.com?subject=${subject}&body=${body}`;
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
 
   return (
-    <section id="contact" className="py-20 bg-surface">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Let's Connect
-          </h2>
-          <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-            Ready to collaborate or discuss opportunities? I'd love to hear from you.
-          </p>
-        </div>
+    <section id="contact" className="py-16 md:py-20 bg-surface">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-3 gradient-text text-center">Let's Work Together</h2>
+        <p className="text-foreground/50 text-center mb-10 max-w-lg mx-auto text-sm md:text-base">
+          Have a project, opportunity, or idea? I'd love to hear about it. Let's build something useful.
+        </p>
         
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <Card className="p-8 glass animate-slide-up">
-            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">Name</label>
-                  <Input 
-                    id="name"
-                    placeholder="Your name"
-                    className="bg-surface-elevated border-border/50 focus:border-primary"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">Email</label>
-                  <Input 
-                    id="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    className="bg-surface-elevated border-border/50 focus:border-primary"
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="p-5 md:p-6 glass rounded-xl space-y-4 animate-slide-up">
+            <h3 className="text-lg font-semibold mb-2">Send a Message</h3>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs text-foreground/50 mb-1 block">Name</label>
                 <Input 
-                  id="subject"
-                  placeholder="What's this about?"
-                  className="bg-surface-elevated border-border/50 focus:border-primary"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  placeholder="Your name"
+                  className="bg-surface-elevated border-border/30 text-sm h-9"
+                  required
                 />
               </div>
-              
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">Message</label>
-                <Textarea 
-                  id="message"
-                  placeholder="Tell me about your project or opportunity..."
-                  rows={6}
-                  className="bg-surface-elevated border-border/50 focus:border-primary resize-none"
+              <div>
+                <label className="text-xs text-foreground/50 mb-1 block">Email</label>
+                <Input 
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  placeholder="you@email.com"
+                  className="bg-surface-elevated border-border/30 text-sm h-9"
+                  required
                 />
               </div>
-              
-              <Button className="w-full bg-primary text-background hover:bg-primary-glow glow-primary">
-                <Send className="w-4 h-4 mr-2" />
-                Send Message
-              </Button>
-            </form>
-          </Card>
+            </div>
+            <div>
+              <label className="text-xs text-foreground/50 mb-1 block">Subject</label>
+              <Input 
+                value={formData.subject}
+                onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                placeholder="What's this about?"
+                className="bg-surface-elevated border-border/30 text-sm h-9"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-xs text-foreground/50 mb-1 block">Message</label>
+              <Textarea 
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                placeholder="Tell me about your project..."
+                rows={5}
+                className="bg-surface-elevated border-border/30 text-sm resize-none"
+                required
+              />
+            </div>
+            <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary-glow text-sm">
+              <Send className="w-4 h-4 mr-2" />
+              Send Message
+            </Button>
+          </form>
           
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="animate-slide-up delay-200">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-foreground/70 mb-8 leading-relaxed">
-                Whether you're looking for a cloud architect, need IoT expertise, or want to discuss 
-                data analysis projects, I'm always open to new opportunities and collaborations.
+          {/* Info */}
+          <div className="space-y-6 animate-slide-up delay-200">
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Get in Touch</h3>
+              <p className="text-sm text-foreground/60 leading-relaxed">
+                Whether you need cloud infrastructure, automation workflows, technical implementation, 
+                or want to discuss opportunities — I'm always open to connecting.
               </p>
             </div>
             
-            {/* Contact Details */}
-            <div className="space-y-4 animate-slide-up delay-300">
-              {contactInfo.map((info, index) => {
-                const Icon = info.icon;
-                return (
-                  <a
-                    key={index}
-                    href={info.href}
-                    className="flex items-center space-x-4 p-4 glass rounded-lg hover:bg-primary/10 transition-all duration-300 group"
-                  >
-                    <div className="p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors duration-300">
-                      <Icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-foreground/60">{info.label}</p>
-                      <p className="text-foreground font-medium">{info.value}</p>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-            
-            {/* Social Links */}
-            <div className="animate-slide-up delay-400">
-              <h4 className="text-lg font-semibold mb-4">Connect on Social</h4>
-              <div className="space-y-3">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-4 p-4 glass rounded-lg hover:bg-primary/10 transition-all duration-300 group"
-                    >
-                      <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors duration-300">
-                        <Icon className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-foreground/60">{social.label}</p>
-                        <p className="text-foreground font-medium">{social.username}</p>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
+            <div className="space-y-3">
+              <a href="mailto:muuoernest001@gmail.com" 
+                className="flex items-center gap-3 p-3 glass rounded-lg hover:border-primary/20 transition-all text-sm group">
+                <Mail className="w-4 h-4 text-primary" />
+                <div>
+                  <p className="text-xs text-foreground/40">Email</p>
+                  <p className="text-foreground/70 group-hover:text-primary transition-colors">muuoernest001@gmail.com</p>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/ernest-muuo" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 glass rounded-lg hover:border-primary/20 transition-all text-sm group">
+                <Linkedin className="w-4 h-4 text-primary" />
+                <div>
+                  <p className="text-xs text-foreground/40">LinkedIn</p>
+                  <p className="text-foreground/70 group-hover:text-primary transition-colors">ernest-muuo</p>
+                </div>
+              </a>
+              <a href="https://github.com/Ernest-M" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 glass rounded-lg hover:border-primary/20 transition-all text-sm group">
+                <Github className="w-4 h-4 text-primary" />
+                <div>
+                  <p className="text-xs text-foreground/40">GitHub</p>
+                  <p className="text-foreground/70 group-hover:text-primary transition-colors">Ernest-M</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>

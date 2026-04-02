@@ -1,84 +1,93 @@
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Download, Github, Linkedin } from 'lucide-react';
-import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+    <section id="hero" className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 hero-grid" />
       
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="animate-slide-up">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 gradient-text">
-            Ernest Muuo
-          </h1>
-        </div>
-        
-        <div className="animate-slide-up delay-200">
-          <p className="text-xl md:text-2xl text-foreground/80 mb-4">
-            Cloud & Tech Enthusiast
-          </p>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto mb-8">
-            AWS Certified Professional | BSc Electrical & Electronics Engineering | 
-            Passionate about cloud architecture, IoT innovation, and data-driven solutions
-          </p>
-        </div>
-        
-        <div className="animate-slide-up delay-400 flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button 
-            onClick={() => scrollToSection('projects')}
-            className="bg-primary text-background hover:bg-primary-glow glow-primary transition-all duration-300"
-          >
-            View My Work
-          </Button>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-20 md:py-0">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
           
-          <Button 
-            variant="outline"
-            className="glass border-primary/50 text-primary hover:bg-primary/20"
-          >
-            <Download className="w-4 h-4 mr-2" />
-            Download CV
-          </Button>
+          {/* Portrait */}
+          <div className="animate-fade-in shrink-0">
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
+              <img 
+                src="/lovable-uploads/889f873e-72c5-4483-ae2e-f58449251214.png"
+                alt="Ernest Muuo"
+                className="relative w-40 h-40 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover rounded-full border-2 border-primary/20 shadow-lg"
+              />
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="text-center md:text-left max-w-xl">
+            <div className="animate-slide-up">
+              <p className="text-sm md:text-base text-primary/80 font-medium tracking-wider uppercase mb-2">
+                Hello, I'm
+              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 gradient-text leading-tight">
+                Ernest Muuo
+              </h1>
+              <p className="text-base md:text-lg text-gold font-medium mb-4">
+                Cloud, Automation & AI Solutions Builder
+              </p>
+            </div>
+            
+            <div className="animate-slide-up delay-200">
+              <p className="text-sm md:text-base text-foreground/60 mb-3">
+                AWS Certified Solutions Architect, Graduate Engineer, and hands-on builder creating cloud deployments, automation workflows, AI-powered tools, and practical digital systems.
+              </p>
+              <p className="text-sm md:text-base text-foreground/50 mb-6 leading-relaxed">
+                I help turn ideas into practical digital solutions through cloud infrastructure, workflow automation, AI-assisted tools, and reliable technical implementation. My background blends engineering discipline, cloud knowledge, and a builder mindset focused on real-world usefulness.
+              </p>
+            </div>
+            
+            <div className="animate-slide-up delay-300 flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6">
+              <Button 
+                onClick={() => scrollTo('projects')}
+                className="bg-primary text-primary-foreground hover:bg-primary-glow transition-all duration-200 text-sm"
+              >
+                View My Work
+              </Button>
+              <Button 
+                variant="outline"
+                className="glass border-primary/30 text-primary hover:bg-primary/10 text-sm"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Download CV
+              </Button>
+              <Button 
+                variant="ghost"
+                onClick={() => scrollTo('contact')}
+                className="text-foreground/60 hover:text-primary text-sm"
+              >
+                Let's Connect
+              </Button>
+            </div>
+            
+            <div className="animate-slide-up delay-400 flex items-center justify-center md:justify-start gap-4">
+              <a href="https://github.com/Ernest-M" target="_blank" rel="noopener noreferrer"
+                className="text-foreground/40 hover:text-primary transition-colors duration-200">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/ernest-muuo" target="_blank" rel="noopener noreferrer"
+                className="text-foreground/40 hover:text-primary transition-colors duration-200">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
         </div>
         
-        <div className="animate-slide-up delay-500 flex items-center justify-center gap-6">
-          <a 
-            href="https://github.com/ernestmuuo" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-foreground/60 hover:text-primary transition-colors duration-300 hover:scale-110 transform"
-          >
-            <Github className="w-6 h-6" />
-          </a>
-          <a 
-            href="https://linkedin.com/in/ernestmuuo" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-foreground/60 hover:text-primary transition-colors duration-300 hover:scale-110 transform"
-          >
-            <Linkedin className="w-6 h-6" />
-          </a>
-        </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float">
-          <button 
-            onClick={() => scrollToSection('about')}
-            className="text-foreground/60 hover:text-primary transition-colors duration-300"
-          >
-            <ArrowDown className="w-6 h-6" />
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block">
+          <button onClick={() => scrollTo('about')} className="text-foreground/30 hover:text-primary transition-colors">
+            <ArrowDown className="w-5 h-5 animate-bounce" />
           </button>
         </div>
       </div>
