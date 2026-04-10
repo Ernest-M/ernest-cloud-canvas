@@ -32,14 +32,14 @@ jobs:
             
             BACKUP_DIR="$BACKUP_BASE/$TIMESTAMP"
             
-            echo "📦Creating backup: $BACKUP_DIR"
+            echo "📦 Creating backup: $BACKUP_DIR"
             mkdir -p $BACKUP_DIR
             cp -r $APP_DIR/* $BACKUP_DIR/
             
-            echo "🧹Cleaning old backups (keep last 3)"
+            echo "🧹 Cleaning old backups (keep last 3)"
             (cd "$BACKUP_BASE" && ls -1dt ./*/ | tail -n +4 | xargs -r rm -rf)
             
-            echo "🚀Deploying new version"
+            echo "🚀 Deploying new version"
             cd $APP_DIR
             git pull origin ${{ github.ref_name }}
             docker compose down
