@@ -5,19 +5,19 @@ const Skills = () => {
   const skillGroups = [
     {
       category: "Cloud & Infrastructure",
-      skills: ["AWS", "Huawei Cloud", "Docker & Self-Hosting", "Cloud Architecture", "Deployment Workflows"]
+      skills: ["AWS", "Huawei Cloud", "Docker & Docker Compose", "VPS Deployment (Linux)", "Nginx Proxy Manager", "Cloud Architecture", "Infrastructure Design", "SSH Key-Based Authentication", "Multi-Environment Architecture"]
     },
     {
       category: "Automation & Integration",
-      skills: ["Workflow Automation", "APIs & Integrations", "Automation Systems Thinking", "Technical Support & Implementation"]
+      skills: ["CI/CD Pipeline Design", "GitHub Actions", "Deployment Automation Workflows", "Workflow Automation", "APIs & Integrations", "Backup & Rollback Strategies", "Automation Systems Thinking", "Technical Support & Implementation"]
     },
     {
       category: "AI & Data",
-      skills: ["AI / LLM Tools", "Python", "Data Visualization", "Power BI"]
+      skills: ["AI / LLM Tools", "Python", "Data Visualization", "Power BI", "Excel"]
     },
     {
       category: "Engineering",
-      skills: ["Engineering Problem Solving", "Electrical & Electronics", "Networking Basics"]
+      skills: ["Engineering Problem Solving", "Electrical & Electronics", "Networking Basics", "Deployment Workflows"]
     }
   ];
 
@@ -27,15 +27,15 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 md:py-20">
+    <section id="skills" className="py-14 md:py-20">
       <div className="container mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3 gradient-text text-center">Skills & Certifications</h2>
-        <p className="text-foreground/50 text-center mb-10 max-w-xl mx-auto text-sm md:text-base">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text text-center">Skills & Certifications</h2>
+        <p className="text-foreground/45 text-center mb-8 max-w-xl mx-auto text-sm">
           A practical toolkit built across cloud, automation, AI, and engineering
         </p>
         
         {/* Skills */}
-        <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto mb-12">
+        <div className="grid sm:grid-cols-2 gap-4 max-w-5xl mx-auto mb-10">
           {skillGroups.map((group, i) => (
             <div key={i} className="p-5 glass rounded-xl animate-slide-up" style={{ animationDelay: `${i * 0.1}s` }}>
               <h3 className="text-sm font-semibold text-primary mb-3">{group.category}</h3>
@@ -52,11 +52,11 @@ const Skills = () => {
 
         {/* Certifications */}
         <div className="max-w-3xl mx-auto">
-          <h3 className="text-lg font-semibold text-center mb-5 text-foreground/80">Certifications</h3>
+          <h3 className="text-base font-semibold text-center mb-4 text-foreground/70">Certifications</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {certifications.map((cert, i) => (
-              <div key={i} className="p-5 glass rounded-xl flex items-start gap-4 animate-slide-up" style={{ animationDelay: `${i * 0.15}s` }}>
-                <div className="p-2.5 bg-gold/10 rounded-lg shrink-0">
+              <div key={i} className="p-4 glass rounded-xl flex items-start gap-3 animate-slide-up" style={{ animationDelay: `${i * 0.15}s` }}>
+                <div className="p-2 bg-gold/10 rounded-lg shrink-0">
                   <Award className="w-5 h-5 text-gold" />
                 </div>
                 <div>
