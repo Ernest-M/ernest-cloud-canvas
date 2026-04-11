@@ -18,7 +18,7 @@ const Experience = () => {
           Real credentials, real projects, real results
         </p>
         
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="space-y-3">
             {proofPoints.map((point, i) => (
               <div

@@ -16,7 +16,7 @@ const About = () => {
           Engineer, cloud architect, and builder of practical digital systems
         </p>
         
-        <div className="grid md:grid-cols-2 gap-10 items-start max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 items-start max-w-6xl mx-auto">
           <div className="space-y-4 text-sm md:text-base text-foreground/70 leading-relaxed">
             <p>
               I'm a graduate engineer with a BSc in Electrical and Electronics Engineering, 

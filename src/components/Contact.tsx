@@ -25,7 +25,7 @@ const Contact = () => {
           Have a project, opportunity, or idea? I'd love to hear about it. Let's build something useful.
         </p>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Form */}
           <form onSubmit={handleSubmit} className="p-5 md:p-6 glass rounded-xl space-y-4 animate-slide-up">
             <h3 className="text-lg font-semibold mb-2">Send a Message</h3>
