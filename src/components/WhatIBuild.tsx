@@ -32,7 +32,7 @@ const WhatIBuild = () => {
           Practical solutions across four key areas
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
